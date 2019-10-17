@@ -35,4 +35,47 @@
     - isprint(c)    // 当c是可打印字符时为真（即c是空格或c具有可视形式）
     - ispunctl()    // 当c是标点符号时为真（即c不是控制字符、数字、字母、可打印空白中的一种）
     - isspace(c)    // 当c是空白时为真（即c是空格、横向制表符、纵向制表符、回车符、换行符、进纸符中的一种）
-    
+    - isupper(c)    // 当c是大写字母时为真
+    - isxdigit(c)   // 当c是十六进制数字时为真
+    - tolower(c)    // 当c是大写字母时，输出对应的小写字母，否则原样输出c
+    - toupper(c)    // 当c是小写字母时，输出对应的大写字母，否则原样输出c
+        ```
+            string str1("Hello World!!!!!!!!!!");
+            decltype(str1.size()) punctl_cnt = 0; // 使用decltype关键字声明计数变量punct_cnt，他的类型是s.size函数的返回值类型，也就是string::size_type。
+
+            for (auto c : str1)
+            {
+                if ( ispunct(c) )
+                {
+                    ++punctl_cnt;
+                }
+            }
+
+        ```
+  - 下标引用string中的每个字符
+    - string对象的下标必须大于等于0且小于s.size()，使用超出此范围的下标将会引发不可预知的结果，因此使用下标访问空string也会引发不可预知的后果
+
+### 标准库类型vector
+  - vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。因为vector “容纳着”其他对象，所以也常被称之为容器。
+    - 想使用vector，必须要包含指定的头文件和用户空间声明
+        ```
+            #include <vector>
+            using std::vector;
+        ```
+ - vector对象的常用方法：
+    - vector<T> v1;         // v1是一个空vector，它潜在元素都是T类型的，执行默认初始化
+    - vector<T> v2(v1);     // v2中包含v1所有元素的副本
+    - vector<T> v2 = v1;    // 等价于v2(v1)，v2中包含v1所有元素的副本
+    - vector<T> v3(n, val); // v3包含了n个重复的元素，每个元素的值都是val
+    - vector<T> v4(n);      // v4包含了n个重复地执行了值初始化的对象
+    - vector<T> v5{a,b,c...} // v5包含了初始值个数的元素，每个元素被赋予相应的初始值
+    - vector<T> v5={a,b,c...} // 等价于上一条
+    ```
+        vector<int> ivec;
+        vector<int> ivec1(ivec);
+        vector<int> ivec2 = ivec;
+
+        vector<string> svec{"a", "an", "the"};
+        vector<int> ivec(10, -1);
+        vector<string> svec(10, "hi");
+    ```
