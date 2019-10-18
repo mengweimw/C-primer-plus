@@ -79,3 +79,16 @@
         vector<int> ivec(10, -1);
         vector<string> svec(10, "hi");
     ```
+  - 其他vector操作
+    - v.empty();            // 如果v不含有任何元素，返回真；否则返回假
+    - v.size();             // 返回v中元素的个数
+    - v.push_back(t);       // 向v的尾端添加一个值为t的元素
+    - v[n];                 // 返回v中第n个位置上元素的引用
+    - v1 = v2;              // 用v2中元素的copy替换v1中的元素
+    - v1 = {a,b,c...};      // 用列表中元素的copy替换v1中的元素
+    - v1 == v2;             // v1和v2相等且仅当他们的元素个数相同且对应位置的元素值都相同
+    - v1 != v2;
+    - <, <=, >, >=          // 已字典的顺序进行比较
+    - [ ] vector<int>::size_type  // 正确
+    - [ ] vector::size_typr       // 错误
+    ***注：不能用下标的方式添加vector元素*** 
