@@ -114,3 +114,8 @@
     - int *parr[sz];                    // 含有32个整型指针的数组
     - string bad[cnt];                  // 错误： cnt不是常量表达式
     - string strs[get_size()];          // 当get_size是constexpr时正确，否则错误
+
+### 数组和String字符串
+  - 使用数组引用时，真正使用的是数组的首地址；
+  - string字符串比较大小，可以通过 "=="，">"，"<"
+  - 使用标准库string，要比使用char型数组更安全，更方便；
